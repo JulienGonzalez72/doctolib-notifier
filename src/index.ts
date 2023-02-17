@@ -38,9 +38,17 @@ const server = express()
 console.log('Starting server...')
 server.listen(3000, () => {
   console.log('Server is running on port 3000')
-  try {
-    start()
-  } catch (err) {
-    console.error(err)
-  }
+})
+
+server.post('/check', (_req, res) => {
+  console.log('POST')
+  run()
+    .then(() => {
+      console.log('Execution successful')
+      res.sendStatus(200)
+    })
+    .catch(err => {
+      console.error(err)
+      res.sendStatus(500)
+    })
 })

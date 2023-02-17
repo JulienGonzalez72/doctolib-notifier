@@ -30,7 +30,7 @@ const dotenv = __importStar(require("dotenv"));
 if (!process.env.CYCLIC_APP_ID) {
     dotenv.config();
 }
-const http_1 = __importDefault(require("http"));
+const express_1 = __importDefault(require("express"));
 const doctolibAPI_1 = __importDefault(require("./doctolibAPI"));
 const notifier_1 = require("./notifier");
 const api = new doctolibAPI_1.default();
@@ -54,15 +54,21 @@ function start() {
         });
     }, 10000);
 }
-const server = http_1.default.createServer();
+const server = (0, express_1.default)();
 console.log('Starting server...');
 server.listen(3000, () => {
     console.log('Server is running on port 3000');
-    try {
-        start();
-    }
-    catch (err) {
+});
+server.post('/check', (_req, res) => {
+    console.log('POST');
+    run()
+        .then(() => {
+        console.log('Execution successful');
+        res.sendStatus(200);
+    })
+        .catch(err => {
         console.error(err);
-    }
+        res.sendStatus(500);
+    });
 });
 //# sourceMappingURL=index.js.map
