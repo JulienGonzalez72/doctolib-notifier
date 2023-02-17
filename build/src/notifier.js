@@ -7,7 +7,7 @@ exports.notify = void 0;
 const twilio_1 = __importDefault(require("twilio"));
 const accountSid = process.env.TWILIO_USER;
 const authToken = process.env.TWILIO_PASSWORD;
-const client = twilio_1.default(accountSid, authToken);
+const client = (0, twilio_1.default)(accountSid, authToken);
 function notify(content) {
     return client.messages.create({
         body: content,
