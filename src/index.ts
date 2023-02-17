@@ -1,5 +1,5 @@
-import * as dotenv from 'dotenv'
-dotenv.config()
+// import * as dotenv from 'dotenv'
+// dotenv.config()
 console.log('ENV', process.env)
 import DoctolibAPI from './doctolibAPI'
 import {notify} from './notifier'
@@ -7,7 +7,6 @@ import {notify} from './notifier'
 const api = new DoctolibAPI()
 
 async function run() {
-  // await api.connect()
   const {availabilities} = await api.getAvailabilities(
     new Date(Date.now()),
     1987843,
