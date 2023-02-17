@@ -1,6 +1,9 @@
-// import * as dotenv from 'dotenv'
-// dotenv.config()
+import * as dotenv from 'dotenv'
+if (!process.env.CYCLIC_APP_ID) {
+  dotenv.config()
+}
 console.log('ENV', process.env)
+import http from 'http'
 import DoctolibAPI from './doctolibAPI'
 import {notify} from './notifier'
 
@@ -30,8 +33,12 @@ function start() {
   }, 10000)
 }
 
-try {
-  start()
-} catch (err) {
-  console.error(err)
-}
+const server = http.createServer()
+server.listen(3000, () => {
+  console.log('Server is running on port 3000')
+  try {
+    start()
+  } catch (err) {
+    console.error(err)
+  }
+})
