@@ -28,6 +28,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const dotenv = __importStar(require("dotenv"));
 dotenv.config();
+console.log('ENV', process.env);
 const doctolibAPI_1 = __importDefault(require("./doctolibAPI"));
 const notifier_1 = require("./notifier");
 const api = new doctolibAPI_1.default();
