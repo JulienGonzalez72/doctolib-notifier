@@ -55,6 +55,7 @@ function start() {
     }, 10000);
 }
 const server = http_1.default.createServer();
+console.log('Starting server...');
 server.listen(3000, () => {
     console.log('Server is running on port 3000');
     try {
