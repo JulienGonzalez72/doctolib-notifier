@@ -1,5 +1,6 @@
 import * as dotenv from 'dotenv'
 dotenv.config()
+console.log('ENV', process.env)
 import DoctolibAPI from './doctolibAPI'
 import {notify} from './notifier'
 
