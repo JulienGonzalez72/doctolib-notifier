@@ -30,12 +30,12 @@ const dotenv = __importStar(require("dotenv"));
 if (!process.env.CYCLIC_APP_ID) {
     dotenv.config();
 }
-console.log('ENV', process.env);
 const http_1 = __importDefault(require("http"));
 const doctolibAPI_1 = __importDefault(require("./doctolibAPI"));
 const notifier_1 = require("./notifier");
 const api = new doctolibAPI_1.default();
 async function run() {
+    console.log('Run check');
     const { availabilities } = await api.getAvailabilities(new Date(Date.now()), 1987843, 436518);
     const slots = availabilities
         .map(a => a.slots)
@@ -46,6 +46,7 @@ async function run() {
     await (0, notifier_1.notify)(`${myAvailabilities.length} Rendez-vous disponibles`);
 }
 function start() {
+    console.log('Start app');
     const daemon = setInterval(() => {
         run().catch(err => {
             console.error(err);

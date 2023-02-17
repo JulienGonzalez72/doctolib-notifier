@@ -2,7 +2,6 @@ import * as dotenv from 'dotenv'
 if (!process.env.CYCLIC_APP_ID) {
   dotenv.config()
 }
-console.log('ENV', process.env)
 import http from 'http'
 import DoctolibAPI from './doctolibAPI'
 import {notify} from './notifier'
@@ -10,6 +9,7 @@ import {notify} from './notifier'
 const api = new DoctolibAPI()
 
 async function run() {
+  console.log('Run check')
   const {availabilities} = await api.getAvailabilities(
     new Date(Date.now()),
     1987843,
@@ -25,6 +25,7 @@ async function run() {
 }
 
 function start() {
+  console.log('Start app')
   const daemon = setInterval(() => {
     run().catch(err => {
       console.error(err)
