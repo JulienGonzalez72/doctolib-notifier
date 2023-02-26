@@ -14,8 +14,8 @@ const MIN_MINUTES = 25
 const api = new DoctolibAPI()
 
 async function run() {
-  console.log('Connecting')
-  await api.connect()
+  // console.log('Connecting')
+  // await api.connect()
   console.log('Running check')
   const {availabilities} = await api.getAvailabilities(
     new Date(Date.now()),
