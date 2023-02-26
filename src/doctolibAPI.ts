@@ -75,12 +75,15 @@ export default class DoctolibAPI {
   private async get<T>(url: string, config?: AxiosRequestConfig) {
     return new Promise<T>((resolve, reject) => {
       setTimeout(() => {
+        console.log('GET')
         this.axios
           .get(url, config)
           .then(res => {
+            console.log('YES')
             resolve(res.data)
           })
           .catch(err => {
+            console.error('GET ERROR', err)
             reject(err.response)
           })
       }, 1000)
