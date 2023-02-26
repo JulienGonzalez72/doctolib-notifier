@@ -10,7 +10,7 @@ export default class DoctolibAPI {
         accept: 'application/json',
         'accept-language':
           'en,fr-FR;q=0.9,fr;q=0.8,en-US;q=0.7,ar;q=0.6,de;q=0.5',
-        'content-type': 'application/json; charset=utf-8',
+        // 'content-type': 'application/json; charset=utf-8',
         'sec-ch-ua':
           '"Not_A Brand";v="99", "Google Chrome";v="109", "Chromium";v="109"',
         'sec-ch-ua-mobile': '?0',
