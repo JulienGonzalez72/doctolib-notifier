@@ -7,8 +7,8 @@ import DoctolibAPI from './doctolibAPI'
 import DoctolibScraper from './doctolibScraper'
 import {notify} from './notifier'
 
-const MAX_DAYS = 14
-const MIN_HOUR = 17
+const MAX_DAYS = 30
+const MIN_HOUR = 9
 const MIN_MINUTES = 25
 
 const api = new DoctolibAPI()
