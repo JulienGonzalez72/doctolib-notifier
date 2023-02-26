@@ -4,6 +4,7 @@ if (!process.env.CYCLIC_APP_ID) {
 }
 import express from 'express'
 import DoctolibAPI from './doctolibAPI'
+import DoctolibScraper from './doctolibScraper'
 import {notify} from './notifier'
 
 const MAX_DAYS = 14
@@ -13,7 +14,7 @@ const MIN_MINUTES = 25
 const api = new DoctolibAPI()
 
 async function run() {
-  console.log('Run check')
+  console.log('Running check')
   const {availabilities} = await api.getAvailabilities(
     new Date(Date.now()),
     1987843,
@@ -47,17 +48,23 @@ async function run() {
   console.log(message)
 }
 
+const scraper = new DoctolibScraper()
+
+async function run2() {
+  await scraper.getAvailabilities()
+}
+
 function start() {
   console.log('Start app')
   const action = () => {
     run().catch(err => {
       console.error(err)
-      clearInterval(daemon)
+      // clearInterval(daemon)
     })
   }
-  const daemon = setInterval(() => {
-    action()
-  }, 60000)
+  // const daemon = setInterval(() => {
+  //   action()
+  // }, 60000)
   action()
 }
 
@@ -70,17 +77,4 @@ server.listen(3000, () => {
   } catch (err) {
     console.error(err)
   }
-})
-
-server.post('/check', (_req, res) => {
-  console.log('POST')
-  run()
-    .then(() => {
-      console.log('Execution successful')
-      res.sendStatus(200)
-    })
-    .catch(err => {
-      console.error(err)
-      res.sendStatus(500)
-    })
 })
