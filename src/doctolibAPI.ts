@@ -7,23 +7,23 @@ export default class DoctolibAPI {
   constructor() {
     this.axios = axios.create({
       headers: {
-        // accept: 'application/json',
-        // 'accept-language':
-        //   'en,fr-FR;q=0.9,fr;q=0.8,en-US;q=0.7,ar;q=0.6,de;q=0.5',
-        // 'content-type': 'application/json; charset=utf-8',
-        // 'sec-ch-ua':
-        //   '"Not_A Brand";v="99", "Google Chrome";v="109", "Chromium";v="109"',
-        // 'sec-ch-ua-mobile': '?0',
-        // 'sec-ch-ua-platform': '"Windows"',
-        // 'sec-fetch-dest': 'empty',
-        // 'sec-fetch-mode': 'cors',
-        // 'sec-fetch-site': 'same-origin',
-        // referrer:
-        //   'https://www.doctolib.fr/masseur-kinesitherapeute/toulouse/claire-guignet/booking/availabilities?motiveIds[]=1987843&placeId=practice-126404&specialityId=9&telehealth=false',
-        // 'referrer-policy': 'origin-when-cross-origin',
-        // 'User-Agent':
-        //   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36',
-        // 'Access-Control-Allow-Origin': '*',
+        accept: 'application/json',
+        'accept-language':
+          'en,fr-FR;q=0.9,fr;q=0.8,en-US;q=0.7,ar;q=0.6,de;q=0.5',
+        'content-type': 'application/json; charset=utf-8',
+        'sec-ch-ua':
+          '"Not_A Brand";v="99", "Google Chrome";v="109", "Chromium";v="109"',
+        'sec-ch-ua-mobile': '?0',
+        'sec-ch-ua-platform': '"Windows"',
+        'sec-fetch-dest': 'empty',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-site': 'same-origin',
+        referrer:
+          'https://www.doctolib.fr/masseur-kinesitherapeute/toulouse/claire-guignet/booking/availabilities?motiveIds[]=1987843&placeId=practice-126404&specialityId=9&telehealth=false',
+        'referrer-policy': 'origin-when-cross-origin',
+        'User-Agent':
+          'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36',
+        'Access-Control-Allow-Origin': '*',
       },
       timeout: 5000,
     })
@@ -32,8 +32,8 @@ export default class DoctolibAPI {
   async connect() {
     const tokenData = await this.get<string>('https://www.doctolib.fr', {
       headers: {
-        // accept:
-        // 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+        accept:
+          'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
       },
     })
     const tokenRegex = /"csrf-token" content="(.+?)"/.exec(tokenData)
