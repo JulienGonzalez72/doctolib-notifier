@@ -18,16 +18,12 @@ export default class DoctolibAPI {
         'sec-fetch-dest': 'empty',
         'sec-fetch-mode': 'cors',
         'sec-fetch-site': 'same-origin',
-        'x-csrf-token':
-          'Qf5Fn58GO9azFLTEtFJEvaqRNjP0usenTUqhfqZWqzu6SFPg2rTbSQjYfDUxVveXTOS2VF0z7tR/uFWj/153AA=',
-        cookie:
-          'ssid=c103000win-TZrQeTk2-PXy; esid=0rtHlc-9th2gyvnluo96SFA_; validation_info_closed=true; __cf_bm=0F3tzTYPvY_jTebTzKJgmgs9OzGCY9kienxKL4KBS84-1677429027-0-AVgb36DW5MZEwmfipj0D7EPZ1yN/91vb6nnWNlQKnVi6ogXpqUIeYprwYt1TIH1xPgtSh2xGbqELJ/IIv0V24KR3dqkvs0RTV6E88cRTYN8h; _doctolib_session=HMNelnV4jrXloCznfSrSnyqLPBtiwtbZ1P%2F4C9HJALV%2Blo6%2Fj41Q07P4q1ylXGcCfDBL052HU662f4j6y%2FzrRV8VV1qYPLXPCw%2FXaKsSP4kgCnMuibeM%2Fu9kzgYt4keY8uxxlmibSt4QAdBxJtE2KWtiK16LUZg1xqTxw2qwXvU7Oo9KbM%2Fgy5qKlAUP76eqF6Fk7Gp3Hdb6TEG1DBhWMIMC3b5mYStszs3zPB3oXS%2Bf4ppf6TypeMxRn5xpfom2zTakePa2CZ2X9%2BWLoT6YEpSKGfyBV5soZTXVm7xvNaQIA2jnPRLKIz9cNKadbTqJxR6qNhHkQP5BpyT10YjOpDJWCMmEMf4AUw%3D%3D--btNxQS0dA4iuzA6Y--ImimDHLKnbkQqLpdLEoZUQ%3D%3D',
         referrer:
           'https://www.doctolib.fr/masseur-kinesitherapeute/toulouse/claire-guignet/booking/availabilities?motiveIds[]=1987843&placeId=practice-126404&specialityId=9&telehealth=false',
-        // 'referrer-policy': 'origin-when-cross-origin',
+        'referrer-policy': 'origin-when-cross-origin',
         'User-Agent':
           'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36',
-        // 'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Origin': '*',
       },
       timeout: 5000,
     })
